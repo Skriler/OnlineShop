@@ -53,11 +53,11 @@ namespace OnlineShop.Pages
 
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
-            var person = await _context.Products.FindAsync(id);
+            Product product = await _context.Products.FindAsync(id);
 
-            if (person != null)
+            if (product != null)
             {
-                _context.Products.Remove(person);
+                _context.Products.Remove(product);
                 await _context.SaveChangesAsync();
             }
 
