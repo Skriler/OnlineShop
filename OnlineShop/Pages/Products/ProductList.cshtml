@@ -20,6 +20,7 @@
         <input type="submit" asp-page-handler="ByProducer" value="Submit" />
         <input type="submit" asp-page-handler="SortByProducer" value="Sort" />
     </form>
+    <p><a asp-page="Create">Add product</a></p>
     <table class="table">
         <tr>
             <th><b>Title</b></th>
@@ -27,6 +28,7 @@
             <th><b>Producer</b></th>
             <th><b>Type</b></th>
             <th><b>Amount</b></th>
+            <th></th>
         </tr>
         @foreach (Product product in Model.DisplayedProductList)
         {
@@ -36,6 +38,19 @@
                 <td>@product.Producer</td>
                 <td>@product.Type</td>
                 <td>@product.Amount</td>
+                <td>
+                    <form method="post">
+                        <a class="btn btn-success" asp-page="Details" asp-route-id="@product.Id">
+                            Details
+                        </a>
+                        <a class="btn btn-info" asp-page="Edit" asp-route-id="@product.Id">
+                            Edit
+                        </a>
+                        <button class="btn btn-danger" type="submit" asp-page-handler="Delete" asp-route-id="@product.Id">
+                            Delete
+                        </button>
+                    </form>
+                </td>
             </tr>
         }
     </table>

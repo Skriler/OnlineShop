@@ -1,0 +1,39 @@
+﻿@page
+@model OnlineShop.Pages.Products.DetailsModel
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div>
+    <h2 class="text-center">@ViewData["Title"]</h2>
+    <div>
+        <label>Title:</label>
+        <br />
+        <input disabled value="@Model.Product.Title" />
+    </div>
+    <div>
+        <label>Price:</label>
+        <br />
+        <input disabled value="@Model.Product.Price" />
+    </div>
+    <div>
+        <label>Producer:</label>
+        <br />
+        <input disabled value="@Model.Product.Producer" />
+    </div>
+    <div>
+        <label>Type:</label>
+        <br />
+        <input disabled value="@Model.Product.Type" />
+    </div>
+    <div>
+        <label>Amount:</label>
+        <br />
+        <input disabled value="@Model.Product.Amount" />
+    </div>
+
+    <br /><br />
+    <a class="btn btn-info" asp-page="ProductList">
+        Go Back
+    </a>
+</div>

@@ -1,0 +1,41 @@
+﻿@page
+@model OnlineShop.Pages.Products.EditModel
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<div>
+    <h2 class="text-center">@ViewData["Title"]</h2>
+    <form method="post">
+        <div asp-validation-summary="All"></div>
+        <input asp-for="Product.Id" type="hidden" />
+        <input asp-for="Product.Type" type="hidden" />
+        <input asp-for="Product.Producer" type="hidden" />
+
+        <div>
+            <label>Title:</label>
+            <div>
+                <input asp-for="Product.Title" />
+                <span asp-validation-for="Product.Title"></span>
+            </div>
+        </div>
+
+        <div>
+            <label>Price:</label>
+            <div>
+                <input asp-for="Product.Price" />
+                <span asp-validation-for="Product.Price"></span>
+            </div>
+        </div>
+
+        <div>
+            <label>Amount:</label>
+            <div>
+                <input asp-for="Product.Amount" />
+                <span asp-validation-for="Product.Amount"></span>
+            </div>
+        </div>
+
+        <input type="submit" value="Edit" />
+    </form>
+</div>
