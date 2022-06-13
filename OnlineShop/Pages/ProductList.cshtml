@@ -1,0 +1,42 @@
+﻿@page
+@model OnlineShop.Pages.ProductListModel
+@using Models
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<div>
+    <h2 class="text-center">Product List</h2>
+    <form method="POST">
+        <label for="price">Enter price:</label>
+        <input type="number" name="price" id="price" />
+        <input type="submit" asp-page-handler="PriceMoreThan" value="More" />
+        <input type="submit" asp-page-handler="PriceLessThan" value="Less" />
+        <input type="submit" asp-page-handler="SortByPrice" value="Sort" />
+    </form>
+    <form method="POST">
+        <label for="producer">Enter producer:</label>
+        <input type="text" name="producer" id="producer" />
+        <input type="submit" asp-page-handler="ByProducer" value="Submit" />
+        <input type="submit" asp-page-handler="SortByProducer" value="Sort" />
+    </form>
+    <table class="table">
+        <tr>
+            <th><b>Title</b></th>
+            <th><b>Price</b></th>
+            <th><b>Producer</b></th>
+            <th><b>Type</b></th>
+            <th><b>Amount</b></th>
+        </tr>
+        @foreach (Product product in Model.DisplayedProductList)
+        {
+            <tr>
+                <td>@product.Title</td>
+                <td>@product.Price</td>
+                <td>@product.Producer</td>
+                <td>@product.Type</td>
+                <td>@product.Amount</td>
+            </tr>
+        }
+    </table>
+</div>
